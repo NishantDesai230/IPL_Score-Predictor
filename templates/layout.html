@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+body
+{
+<!--	background: -webkit-gradient(linear, left top, left bottom, from(orange),to(green)) fixed;-->
+	font-family: verdana;
+}
+.c_2
+{
+	display: block;
+}
+.l_1
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+li
+{
+  float: right;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover
+{
+	color: red;
+	background-color: black;
+}
+h1
+{
+	color: white;
+	font-family: verdana;
+}
+.cricket_logo
+{
+border-radius:50%;
+}
+    </style>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>FlaskBlog - {{ title }}</title>
+    {% else %}
+        <title>FlaskBlog</title>
+    {% endif %}
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="background-color:#0d2040;">
+<div class="c_1">
+		<div class="c_2">
+			<ul class="l_1">
+				<img src="{{url_for('static',filename='images.png')}}" class="cricket_logo" style="height:60%">
+				{% if title !="Login" %}
+					<li><a href="/login">Login</a></li>
+				{% endif %}
+				{% if title !="Register" %}
+					<li><a href="/register">Register</a></li>
+				{% endif %}
+				{% if title !="Home" %}
+					<li><a href="/home">Home</a></li>
+				{% endif %}
+			</ul>
+		</div>
+</div>
+<br>
+<br>
+{% with message = get_flashed_messages(with_categories=true) %}
+	{% if message %}
+		{% for category,message in message %}
+			<div class="alert alert-{{ category }}" style="weight:1000">
+				{{message}}
+			</div>
+		{%endfor%}
+	{% endif %}
+{% endwith %}
+{% block content %}
+{% endblock %}
+</body>
+</html>

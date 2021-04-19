@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% block content %}
+	<style type="text/css">
+		.mySlides
+		{
+			position:absolute;
+			margin-top: 10%;
+			border-radius: 10%;
+			margin-left: 10%
+		}
+		button
+		{
+			position: absolute;
+			margin-top: 24%;
+			margin-left:47%;
+			border-radius:10px;
+			width:150px;
+            font-size:20px;
+            text-decoration:none;
+            padding:20px;
+		}
+		a:hover
+		{
+		color:white;
+		}
+		.mySlides1
+		{
+			position:absolute;
+			margin-top: 10%;
+			border-radius: 10%;
+			margin-left: 70%;
+		}
+	</style>
+<div>
+	<img src="{{url_for('static',filename='csk.jpg')}}" class="mySlides w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='mi.jpg')}}" class="mySlides w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='punjab.jpg')}}" class="mySlides w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='srh.jpg')}}" class="mySlides w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='rcb.jpg')}}" class="mySlides w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='delhi.jpg')}}" class="mySlides w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='rr.jpg')}}" class="mySlides w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='kkr.jpg')}}" class="mySlides w3-animate-down" style="height:60%">
+    <a href="/register"><button class="btn-outline-warning">Join Us!</button></a>
+    <img src="{{url_for('static',filename='kkr.jpg')}}" class="mySlides1 w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='rr.jpg')}}" class="mySlides1 w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='delhi.jpg')}}" class="mySlides1 w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='rcb.jpg')}}" class="mySlides1 w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='srh.jpg')}}" class="mySlides1 w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='punjab.jpg')}}" class="mySlides1 w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='mi.jpg')}}" class="mySlides1 w3-animate-down" style="height:60%">
+	<img src="{{url_for('static',filename='csk.jpg')}}" class="mySlides1 w3-animate-down" style="height:60%">
+</div>
+<script>
+var myIndex = 0;
+var myIndex1 = 0;
+a();
+b();
+
+	function a()
+	{
+		var i;
+		var x = document.getElementsByClassName('mySlides')
+
+		for(i=0;i<x.length;i++)
+		{
+			x[i].style.display = "none";
+		}
+		myIndex++;
+		if (myIndex > x.length)
+		{
+			myIndex=1;
+		}
+		x[myIndex-1].style.display = "block";
+		x[myIndex-1].style.width = "25%";
+		setTimeout(a, 2500);
+		}
+
+		function b()
+	{
+		var i;
+		var y = document.getElementsByClassName('mySlides1')
+
+		for(i=0;i<y.length;i++)
+		{
+			y[i].style.display = "none";
+		}
+		myIndex1++;
+		if (myIndex1 > y.length)
+		{
+			myIndex1=1;
+		}
+		y[myIndex1-1].style.display = "block";
+		y[myIndex1-1].style.width = "25%";
+		setTimeout(b, 2500);
+	}
+</script>
+{% endblock content %}
